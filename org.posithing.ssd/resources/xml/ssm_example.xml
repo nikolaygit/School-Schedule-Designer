@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schoolschedule 
+	xmlns="http://www.posithing.com/schoolschedulemanager/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<teachers>
+		<teacher firstName="Николай" lastName="Георгиев" id="нигеорг" color="0,128,0" shape="triangle">
+			<teacherSubject id="Метаматика" >
+				<forClass id="5а"/>
+				<forClass id="5б"/>
+			</teacherSubject>
+		</teacher>
+		<teacher firstName="Ивана" lastName="Божева" id="ивбож" />
+		<teacher firstName="Валя" lastName="Георгиева" id="валгеорг" color="0,128,0" shape="rectangle">
+			<teacherSubject id="Метаматика" >
+				<forClass id="6а"/>
+				<forClass id="6б"/>
+				<forClass id="6в"/>
+			</teacherSubject>
+		</teacher>
+	</teachers>
+	
+	<subjects>
+		<subject id="Метаматика"/>
+	</subjects>
+	
+	<classes>
+		<class grade="5" id="5а" />
+		<class grade="5" id="5б" />
+		
+		<class grade="6" id="6а" />
+		<class grade="6" id="6б" />
+		<class grade="6" id="6в" />
+	</classes>
+	
+	<options>
+		<schoolDays value="1 2 3 4 5"/>
+		<timeSlotsPerDay value="7"/>
+		<option name="testoption" value="testvalue"/>
+	</options>
+	
+	<timeSlotsAssignment>
+		<timeSlotAssignment day="1" daySlot="1" classId="5a" teacherId="валгеорг" subjectId="Метаматика" />
+	</timeSlotsAssignment>
+	
+</schoolschedule>

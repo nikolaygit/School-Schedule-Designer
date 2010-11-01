@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schoolschedule xmlns="http://www.posithing.com/schoolschedulemanager/">
+    <teachers>
+        <teacher shape="" color="255,128,0" lastName="g" firstName="n" id="ng">
+            <teacherSubject id="Химия">
+                <forClass id="7а"/>
+                <forClass id="7б"/>
+                <forClass id="7в"/>
+                <forClass id="7г"/>
+                <forClass id="7д"/>
+            </teacherSubject>
+        </teacher>
+        <teacher shape="" color="255,255,92" lastName="g" firstName="w" id="wg">
+            <teacherSubject id="Математика">
+                <forClass id="5д"/>
+            </teacherSubject>
+        </teacher>
+        <teacher shape="rectangle" color="0,128,0" lastName="Георгиева" firstName="Валя" id="22"/>
+    </teachers>
+    <subjects>
+        <subject name="Английски ез." id="Английски ез."/>
+        <subject name="Биология" id="Биология"/>
+        <subject name="Български ез." id="Български ез."/>
+        <subject name="История" id="История"/>
+        <subject name="Математика" id="Математика"/>
+        <subject name="Немски ез." id="Немски ез."/>
+        <subject name="Трудово" id="Трудово"/>
+        <subject name="Физика" id="Физика"/>
+        <subject name="Физическо" id="Физическо"/>
+        <subject name="Химия" id="Химия"/>
+    </subjects>
+    <classes>
+        <class name="5а" id="5а" grade="5"/>
+        <class name="5б" id="5б" grade="5"/>
+        <class name="5в" id="5в" grade="5"/>
+        <class name="5г" id="5г" grade="5"/>
+        <class name="5д" id="5д" grade="5"/>
+        <class name="6а" id="6а" grade="6"/>
+        <class name="6б" id="6б" grade="6"/>
+        <class name="6в" id="6в" grade="6"/>
+        <class name="6г" id="6г" grade="6"/>
+        <class name="6д" id="6д" grade="6"/>
+        <class name="7а" id="7а" grade="7"/>
+        <class name="7б" id="7б" grade="7"/>
+        <class name="7в" id="7в" grade="7"/>
+        <class name="7г" id="7г" grade="7"/>
+        <class name="7д" id="7д" grade="7"/>
+    </classes>
+</schoolschedule>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schoolschedule 
+	xmlns="http://www.posithing.com/schoolschedulemanager/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<teachers>
+		<teacher lastName="Nikolay" firstName="Georgiev" id="nigeorg"/>
+		<teacher lastName="Valia" firstName="Georgieva" id="nigeorg"/>
+	</teachers>
+	
+	<subjects>
+		<subject id="Mathematics"/>
+	</subjects>
+	
+	<classes>
+		<class grade="5" id="5a" />
+		<class grade="5" id="5b" />
+		
+		<class grade="6" id="6a" />
+		<class grade="6" id="6b" />
+		<class grade="6" id="6v" />
+	</classes>
+	
+	<options>
+		<schoolDays value="1 2 3 4 5"/>
+		<timeSlotsPerDay value="7"/>
+		<option name="testoption" value="testvalue"/>
+	</options>
+	
+	<timeSlotsAssignment>
+		<timeSlotAssignment day="1" daySlot="1" classId="5a" subjectId="Mathematics" teacherId="valgeorg"/>
+	</timeSlotsAssignment>
+	
+</schoolschedule>

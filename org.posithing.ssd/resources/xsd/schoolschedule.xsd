@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ssm="http://www.posithing.com/schoolschedulemanager/"
+	targetNamespace="http://www.posithing.com/schoolschedulemanager/"
+	xmlns:jxb="http://java.sun.com/xml/ns/jaxb" jxb:version="2.0">
+
+
+	<!--
+		=========================== SCHOOL SCHEDULE ==========================
+	-->
+
+	<element name="schoolschedule" type="ssm:SchoolScheduleType" />
+
+	<complexType name="SchoolScheduleType">
+		<sequence>
+			<element ref="ssm:teachers" minOccurs="0" maxOccurs="1" />
+			<element ref="ssm:subjects" minOccurs="0" maxOccurs="1" />
+			<element ref="ssm:classes" minOccurs="0" maxOccurs="1" />
+			<element ref="ssm:options" minOccurs="0" maxOccurs="1" />
+			<element ref="ssm:timeSlotsAssignment" minOccurs="0"
+				maxOccurs="1" />
+		</sequence>
+	</complexType>
+
+
+	<!--
+		============================== TEACHERS ==============================
+	-->
+
+	<element name="teachers" type="ssm:TeachersType">
+		<unique name="uniqueIdPerTeacher">
+			<selector xpath="ssm:teacher" />
+			<field xpath="@id"></field>
+		</unique>
+	</element>
+
+	<complexType name="TeachersType">
+		<sequence>
+			<element ref="ssm:teacher" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<element name="teacher" type="ssm:TeacherType" />
+
+	<complexType name="TeacherType">
+		<sequence minOccurs="0" maxOccurs="unbounded">
+			<element ref="ssm:teacherSubject" />
+		</sequence>
+		<attribute name="id" type="string" />
+		<attribute name="firstName" type="string" use="required" />
+		<attribute name="lastName" type="string" use="required" />
+		<attribute name="color" type="string">
+			<annotation>
+				<documentation>e.g. F5B800</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="shape" type="string">
+			<annotation>
+				<documentation>
+					e.g. "oval", "rectangle", "triangle"
+				</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+
+	<element name="teacherSubject" type="ssm:TeacherSubjectType" />
+
+	<complexType name="TeacherSubjectType">
+		<sequence minOccurs="0" maxOccurs="unbounded">
+			<element ref="ssm:forClass" />
+		</sequence>
+		<attribute name="id" type="string" />
+	</complexType>
+
+	<element name="forClass" type="ssm:ForClassType" />
+
+	<complexType name="ForClassType">
+		<attribute name="id" type="string" use="required" />
+	</complexType>
+	
+
+	<!--
+		============================== SUBJECTS ==============================
+	-->
+
+	<element name="subjects" type="ssm:SubjectsType">
+		<unique name="uniqueIdPerSubject">
+			<selector xpath="ssm:subject" />
+			<field xpath="@id"></field>
+		</unique>
+	</element>
+
+	<complexType name="SubjectsType">
+		<sequence>
+			<element ref="ssm:subject" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<element name="subject" type="ssm:SubjectType"></element>
+
+	<complexType name="SubjectType">
+		<attribute name="id" type="string" use="required" />
+		<attribute name="name" type="string" />
+	</complexType>
+
+
+	<!--
+		============================== CLASSES ==============================
+	-->
+
+	<element name="classes" type="ssm:ClassesType">
+		<unique name="uniqueIdPerClass">
+			<selector xpath="ssm:class" />
+			<field xpath="@id"></field>
+		</unique>
+	</element>
+
+	<complexType name="ClassesType">
+		<sequence>
+			<element ref="ssm:class" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<element name="class" type="ssm:ClassType"></element>
+
+	<complexType name="ClassType">
+		<attribute name="grade" type="int" use="required" />
+		<attribute name="id" type="string" />
+		<attribute name="name" type="string" />
+	</complexType>
+
+
+	<!--
+		============================== OPTIONS ==============================
+	-->
+
+	<element name="options" type="ssm:OptionsType">
+		<unique name="uniqueIdPerOption">
+			<selector xpath="ssm:option" />
+			<field xpath="@id"></field>
+		</unique>
+	</element>
+
+	<complexType name="OptionsType">
+		<sequence minOccurs="0" maxOccurs="1">
+			<element ref="ssm:schoolDays" minOccurs="0" maxOccurs="1" />
+			<element ref="ssm:timeSlotsPerDay" minOccurs="0" maxOccurs="1" />
+			<element ref="ssm:option" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<!-- fixed/known options -->
+
+	<element name="schoolDays">
+		<complexType>
+			<attribute name="value" use="required">
+				<simpleType>
+					<restriction base="ssm:daysList">
+						<minLength value="1"></minLength>
+						<maxLength value="7"></maxLength>
+					</restriction>
+				</simpleType>
+			</attribute>
+		</complexType>
+	</element>
+
+	<simpleType name="daysList">
+		<list itemType="int" />
+	</simpleType>
+
+	<element name="timeSlotsPerDay">
+		<complexType>
+			<attribute name="value" type="int" use="required" />
+		</complexType>
+	</element>
+
+	<!-- extensible options -->
+
+	<element name="option" type="ssm:OptionType"></element>
+
+	<complexType name="OptionType">
+		<attribute name="name" type="string" use="required" />
+		<attribute name="value" type="string" use="required" />
+	</complexType>
+
+
+	<!--
+		========================== TIME SLOTS ASSIGNMENT
+		========================
+	-->
+
+	<element name="timeSlotsAssignment" type="ssm:TimeSlotsAssignmentType" />
+
+	<complexType name="TimeSlotsAssignmentType">
+		<sequence minOccurs="0" maxOccurs="unbounded">
+			<element ref="ssm:timeSlotAssignment" minOccurs="0" maxOccurs="1" />
+		</sequence>
+	</complexType>
+
+	<element name="timeSlotAssignment" type="ssm:TimeSlotAssignmentType"></element>
+
+	<complexType name="TimeSlotAssignmentType">
+		<attribute name="day" type="int" use="required" />
+		<attribute name="daySlot" type="int" use="required" />
+		<attribute name="classId" type="string" use="required" />
+		<attribute name="subjectId" type="string" use="required" />
+		<attribute name="teacherId" type="string" use="required" />
+	</complexType>
+
+</schema>

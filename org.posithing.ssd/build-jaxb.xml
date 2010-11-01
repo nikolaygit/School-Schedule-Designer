@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     Dec 21, 2009 1:10:38 AM                                                        
+
+     JAXB Java Classes Generator    
+     Generates the Java Classes from the schoolschedule XSD Schema
+                   
+     Nikolay Georgiev                                                                
+     ====================================================================== -->
+<project name="JAXB Java Classes Generator" default="xjc">
+    <description>
+    	Generates the Java Classes from the schoolschedule XSD Schema
+    </description>
+	
+	<!-- https://jaxb.dev.java.net/nonav/2.2/docs/xjcTask.html -->
+	<taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
+		<classpath>
+			<fileset dir="libs-internal" includes="*.jar"/>
+		</classpath>
+	</taskdef>
+	
+	<target name="xjc" description="Generate Java Classes" >
+		<mkdir dir="generated-src/com/posithing/ssm/jaxb" />
+		<xjc destdir="generated-src" schema="resources/xsd/schoolschedule.xsd" 
+				removeOldOutput="yes" package="org.posithing.ssd.jaxb">
+		  <produces dir="generated-src/com/posithing/ssm/jaxb" />
+			<!-- <produces dir="generated-src/com/posithing/ssm/jaxb" includes="* impl/*" /> -->
+		</xjc>
+	</target>
+	
+</project>

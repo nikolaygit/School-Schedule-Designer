@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SSM third-party Libraries
+Bundle-SymbolicName: org.posithing.ssd.libraries
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Posithing
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ClassPath: lib/miglayout-3.7-swt.jar,
+ lib/commons-logging-1.1.1.jar,
+ .,
+ lib/KTable.jar
+Export-Package: de.kupzog.ktable,
+ de.kupzog.ktable.editors,
+ de.kupzog.ktable.renderers,
+ net.miginfocom.layout,
+ net.miginfocom.swt,
+ org.apache.commons.logging
+Require-Bundle: org.eclipse.swt;bundle-version="3.5.1"
